@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4b514e17-68c7-4586-86b2-3776a4f8a7f4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>LogFilter.py</StartupFile>
+    <StartupFile>Main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,20 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="LogFilter.py" />
+    <Compile Include="Domain\LogDomain.py" />
+    <Compile Include="Domain\SettingsDomain.py" />
+    <Compile Include="FilterUtils.py" />
+    <Compile Include="Main.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Inputs\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Outputs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Inputs\input.json" />
+    <Content Include="Inputs\Logfile.json" />
+    <Content Include="Settings.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
