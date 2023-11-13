@@ -1,0 +1,15 @@
+{
+  "logPath": "***",
+  "outputPath": "***",
+  "eventFilter": {
+    "enabled": true,
+    "operationFilter": {
+      "enabled": true,
+      "include": true,
+      "data": [ "FileSystemControl", "RegQueryKey" ]
+    }
+  },
+  "processFilter": {
+    "enabled": true
+  }
+}
