@@ -2,14 +2,54 @@
   "logPath": "***",
   "outputPath": "***",
   "eventFilter": {
-    "enabled": true,
+    "enabled": false,
     "operationFilter": {
-      "enabled": true,
+      "enabled": false,
       "include": true,
-      "data": [ "FileSystemControl", "RegQueryKey" ]
+      "data": []
+    },
+    "pidFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
+    },
+    "processIndexFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
+    },
+    "processNameFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
     }
   },
   "processFilter": {
-    "enabled": true
+    "enabled": false,
+    "commandLineFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
+    },
+    "companyNameFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
+    },
+    "isVirtualizedFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
+    },
+    "processIdFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
+    },
+    "processNameFilter": {
+      "enabled": false,
+      "include": true,
+      "data": []
+    }
   }
 }
