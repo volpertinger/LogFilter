@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/LogFilter/Inputs/Logfile.JSON
+/LogFilter/Outputs/collectUniqueEventFields.JSON
+/LogFilter/Outputs/logfile.json
