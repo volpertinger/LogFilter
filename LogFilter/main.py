@@ -1,4 +1,3 @@
-import imp
 import json
 import os
 
@@ -11,8 +10,8 @@ from Domain.LogDomain import Log
 if __name__ == "__main__":
     settings = Settings.fromFile(os.path.join(os.getcwd(), "Settings.json"))
 
-    log = getFromFile(settings.log_path)
+    log = getFromFile(settings.input_path)
     filtered_log = filterLog(log, settings)
-    saveLog(filtered_log, settings.output_path)
+    saveLog(filtered_log, settings.write_filtered_result.output_path)
 
     print("END")

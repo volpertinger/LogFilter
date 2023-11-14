@@ -1,6 +1,16 @@
 {
-  "logPath": "***",
-  "outputPath": "***",
+  "inputPath": "***",
+  "Actions": {
+    "writeFilteredResult": {
+      "enabled": true,
+      "outputPath": "***"
+    },
+    "collectUniqueProcessFields": {
+      "enabled": true,
+      "fields": [],
+      "outputPath": "***"
+    }
+  },
   "eventFilter": {
     "enabled": true,
     "operationFilter": {
@@ -35,7 +45,7 @@
     }
   },
   "processFilter": {
-    "enabled": true,
+    "enabled": false,
     "commandLineFilter": {
       "enabled": false,
       "include": true,

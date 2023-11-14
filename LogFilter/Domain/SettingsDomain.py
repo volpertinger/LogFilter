@@ -32,14 +32,18 @@ class ProcessFilter:
         self.process_id_filter = NodeSetting(json["processIdFilter"])
         self.process_name_filter = NodeSetting(json["processNameFilter"])
         
+class ActionBaseSetting:
+    def __init__(self, json: dict):
+        self.enabled = json["enabled"]
+        self.output_path = json["outputPath"]
         
 
 class Settings:
     def __init__(self, json: dict):
         self.event_filter = EventFilter(json["eventFilter"])
         self.process_filter = ProcessFilter(json["processFilter"])
-        self.log_path = json["logPath"]
-        self.output_path = json["outputPath"]
+        self.input_path = json["inputPath"]
+        self.write_filtered_result = ActionBaseSetting(json["Actions"]["writeFilteredResult"])
         
     @staticmethod
     def fromFile(path: str): 

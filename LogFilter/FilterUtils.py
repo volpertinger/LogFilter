@@ -15,6 +15,9 @@ def getFromFile(path: str):
 def filterLog(log: Log, settings: Settings):
     result = Log()
 
+    if not settings.write_filtered_result.__module__:
+        return log
+
     if settings.event_filter.enabled:
         for event in log.event_list.event:
             if isEventInFilter(event, settings.event_filter):
@@ -26,6 +29,9 @@ def filterLog(log: Log, settings: Settings):
                 result.addProcess(process)
 
     return result
+
+def collectUniqueFields(log: Log, settings: Settings):
+    pass
 
 
 def saveLog(log: Log, path: str):
