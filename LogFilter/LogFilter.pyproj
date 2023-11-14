@@ -32,8 +32,7 @@
     <Folder Include="Outputs\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Inputs\input.json" />
-    <Content Include="Inputs\Logfile.json" />
+    <Content Include="Inputs\Logfile.JSON" />
     <Content Include="Settings.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

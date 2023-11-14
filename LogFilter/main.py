@@ -13,7 +13,6 @@ if __name__ == "__main__":
 
     log = getFromFile(settings.log_path)
     filtered_log = filterLog(log, settings)
-    filtered_log = Log(None)
-    #saveLog(log, settings.output_path)
+    saveLog(filtered_log, settings.output_path)
 
     print("END")
