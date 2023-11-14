@@ -1,15 +1,19 @@
 {
   "inputPath": "***",
-  "Actions": {
+  "actions": {
     "writeFilteredResult": {
-      "enabled": true,
+      "enabled": false,
       "outputPath": "***"
     },
     "collectUniqueEventFields": {
-      "enabled": true,
+      "enabled": false,
       "fields": [],
       "outputPath": "***"
     }
+  },
+  "writeOptions": {
+    "console": false,
+    "file": false
   },
   "eventFilter": {
     "enabled": true,
@@ -29,18 +33,18 @@
       "data": []
     },
     "processNameFilter": {
-      "enabled": true,
-      "include": false,
+      "enabled": false,
+      "include": true,
       "data": []
     },
     "pathFilter": {
       "enabled": false,
-      "include": false,
+      "include": true,
       "data": []
     },
     "resultFilter": {
       "enabled": false,
-      "include": false,
+      "include": true,
       "data": []
     }
   },
@@ -52,7 +56,7 @@
       "data": []
     },
     "companyNameFilter": {
-      "enabled": true,
+      "enabled": false,
       "include": true,
       "data": []
     },
@@ -62,7 +66,7 @@
       "data": []
     },
     "processIdFilter": {
-      "enabled": true,
+      "enabled": false,
       "include": true,
       "data": []
     },

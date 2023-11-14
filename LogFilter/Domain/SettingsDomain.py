@@ -47,17 +47,24 @@ class CollectUniaueEventFields(ActionBaseSetting):
         self.fields = json["fields"]
 
 
+class WriteOptions:
+    def __init__(self, json: dict):
+        self.console = json["console"]
+        self.file = json["file"]
+
+
 class Settings:
     def __init__(self, json: dict):
         self.event_filter = EventFilter(json["eventFilter"])
         self.process_filter = ProcessFilter(json["processFilter"])
         self.input_path = json["inputPath"]
         self.write_filtered_result = ActionBaseSetting(
-            json["Actions"]["writeFilteredResult"]
+            json["actions"]["writeFilteredResult"]
         )
         self.collect_unique_event_fields = CollectUniaueEventFields(
-            json["Actions"]["collectUniqueEventFields"]
+            json["actions"]["collectUniqueEventFields"]
         )
+        self.write_options = WriteOptions(json["writeOptions"])
 
     @staticmethod
     def fromFile(path: str):

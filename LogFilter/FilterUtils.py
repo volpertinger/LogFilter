@@ -1,7 +1,14 @@
 import json
 from tokenize import String
+from turtle import write_docstringdict
 
-from Domain.SettingsDomain import EventFilter, ProcessFilter, Settings, NodeSetting
+from Domain.SettingsDomain import (
+    EventFilter,
+    ProcessFilter,
+    Settings,
+    NodeSetting,
+    WriteOptions,
+)
 from Domain.LogDomain import Log, Event, Process
 
 
@@ -41,22 +48,32 @@ def collectUniqueFields(log: Log, settings: Settings):
         json_event = event.__dict__()
         for field in settings.collect_unique_event_fields.fields:
             result[field].add(json_event[field])
-            
+
     for field in settings.collect_unique_event_fields.fields:
         result[field] = list(result[field])
 
     return result
 
 
-def saveLog(log: Log, path: str):
-    saveDict(log.__dict__(), path)
+def outputLogProcessing(
+    log: Log, path: str, write_options: WriteOptions, enabled: bool = True
+):
+    outputDictProcessing(log.__dict__(), path, write_options, enabled)
 
 
-def saveDict(input: dict, path: str):
-    json_str = json.dumps(input)
-    file = open(path, "w+")
-    file.write(json_str)
-    file.close()
+def outputDictProcessing(
+    input: dict, path: str, write_options: WriteOptions, enabled: bool = True
+):
+    if enabled:
+        json_str = json.dumps(input)
+
+        if write_options.file:
+            file = open(path, "w+")
+            file.write(json_str)
+            file.close()
+
+        if write_options.console:
+            print(json_str)
 
 
 def isFieldInFilter(field: String, node_setting: NodeSetting):
