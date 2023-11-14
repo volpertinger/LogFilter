@@ -50,6 +50,8 @@ def isEventInFilter(event: Event, filter: EventFilter):
         and isFieldInFilter(event.pid, filter.pid_filter)
         and isFieldInFilter(event.process_index, filter.process_index_filter)
         and isFieldInFilter(event.process_name, filter.process_name_filter)
+        and isFieldInFilter(event.path, filter.path_filter)
+        and isFieldInFilter(event.result, filter.result_filter)
     )
 
 
