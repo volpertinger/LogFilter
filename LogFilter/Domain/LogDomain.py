@@ -1,3 +1,6 @@
+from tkinter import SEL
+
+
 class Event:
     def __init__(self, json: dict):
         self.detail = json["Detail"]
@@ -94,12 +97,12 @@ class ModuleList:
             self.module = list()
             return
         self.module = self.getListFromJson(json["module"])
-        
+
     def __dict__(self):
         result = list()
         for module in self.module:
             result.append(module.__dict__())
-        return{"module": result}
+        return {"module": result}
 
     def append(self, module: Module):
         self.module.append(module)
@@ -118,12 +121,12 @@ class ProcessList:
             self.process = list()
             return
         self.process = self.getListFromJson(json["process"])
-        
+
     def __dict__(self):
         result = list()
         for process in self.process:
             result.append(process.__dict__())
-        return{"process": result}
+        return {"process": result}
 
     def append(self, process: Process):
         self.process.append(process)
@@ -142,15 +145,15 @@ class EventList:
             self.event = list()
             return
         self.event = self.getListFromJson(json["event"])
-        
+
     def __dict__(self):
         result = list()
         for event in self.event:
             result.append(event.__dict__())
-        return{"event": result}
+        return {"event": result}
 
     def append(self, event: Event):
-        self.append(event)
+        self.event.append(event)
 
     @staticmethod
     def getListFromJson(json_list: list):
@@ -179,5 +182,15 @@ class Log:
     def addEvent(self, event: Event):
         self.event_list.append(event)
 
+    def getEvent(self, i: int):
+        if i >= 0 and i < len(self.event_list.event):
+            return self.event_list.event[i]
+        return None
+
     def addProcess(self, process: Process):
         self.process_list.append(process)
+
+    def getProcess(self, i: int):
+        if i >= 0 and i < len(self.process_list.process):
+            return self.process_list.process[i]
+        return None
