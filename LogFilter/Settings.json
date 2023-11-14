@@ -2,7 +2,7 @@
   "logPath": "***",
   "outputPath": "***",
   "eventFilter": {
-    "enabled": false,
+    "enabled": true,
     "operationFilter": {
       "enabled": false,
       "include": true,
@@ -19,20 +19,30 @@
       "data": []
     },
     "processNameFilter": {
+      "enabled": true,
+      "include": false,
+      "data": []
+    },
+    "pathFilter": {
       "enabled": false,
-      "include": true,
+      "include": false,
+      "data": []
+    },
+    "resultFilter": {
+      "enabled": false,
+      "include": false,
       "data": []
     }
   },
   "processFilter": {
-    "enabled": false,
+    "enabled": true,
     "commandLineFilter": {
       "enabled": false,
       "include": true,
       "data": []
     },
     "companyNameFilter": {
-      "enabled": false,
+      "enabled": true,
       "include": true,
       "data": []
     },
@@ -42,7 +52,7 @@
       "data": []
     },
     "processIdFilter": {
-      "enabled": false,
+      "enabled": true,
       "include": true,
       "data": []
     },

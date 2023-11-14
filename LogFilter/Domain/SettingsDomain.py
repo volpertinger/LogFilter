@@ -20,6 +20,8 @@ class EventFilter:
         self.pid_filter = NodeSetting(json["pidFilter"])
         self.process_index_filter = NodeSetting(json["processIndexFilter"])
         self.process_name_filter = NodeSetting(json["processNameFilter"])
+        self.path_filter = NodeSetting(json["pathFilter"])
+        self.result_filter = NodeSetting(json["resultFilter"])
         
 class ProcessFilter:
     def __init__(self, json: dict):
