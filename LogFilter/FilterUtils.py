@@ -30,13 +30,30 @@ def filterLog(log: Log, settings: Settings):
 
     return result
 
+
 def collectUniqueFields(log: Log, settings: Settings):
-    pass
+    result = {}
+
+    for field in settings.collect_unique_event_fields.fields:
+        result[field] = set()
+
+    for event in log.event_list.event:
+        json_event = event.__dict__()
+        for field in settings.collect_unique_event_fields.fields:
+            result[field].add(json_event[field])
+            
+    for field in settings.collect_unique_event_fields.fields:
+        result[field] = list(result[field])
+
+    return result
 
 
 def saveLog(log: Log, path: str):
-    tmp = log.__dict__()
-    json_str = json.dumps(tmp)
+    saveDict(log.__dict__(), path)
+
+
+def saveDict(input: dict, path: str):
+    json_str = json.dumps(input)
     file = open(path, "w+")
     file.write(json_str)
     file.close()
