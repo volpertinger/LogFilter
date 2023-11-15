@@ -32,24 +32,26 @@ def filterLog(log: Log, settings: Settings):
 
     if settings.process_filter.enabled:
         for process in log.process_list.process:
+            if not settings.process_filter.with_modules:
+                process.modulelist.module = list()
             if isProcessInFilter(process, settings.process_filter):
                 result.addProcess(process)
 
     return result
 
 
-def collectUniqueFields(log: Log, settings: Settings):
+def collectUniqueFields(fields: list, collection: list()):
     result = {}
 
-    for field in settings.collect_unique_event_fields.fields:
+    for field in fields:
         result[field] = set()
 
-    for event in log.event_list.event:
-        json_event = event.__dict__()
-        for field in settings.collect_unique_event_fields.fields:
-            result[field].add(json_event[field])
+    for el in collection:
+        json_el = el.__dict__()
+        for field in fields:
+            result[field].add(json_el[field])
 
-    for field in settings.collect_unique_event_fields.fields:
+    for field in fields:
         result[field] = list(result[field])
 
     return result

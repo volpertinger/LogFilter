@@ -25,10 +25,21 @@ if __name__ == "__main__":
         settings.write_filtered_result.enabled,
     )
 
-    unique_fields = collectUniqueFields(filtered_log, settings)
+    unique_event_fields = collectUniqueFields(
+        settings.collect_unique_event_fields.fields, filtered_log.event_list.event
+    )
     outputDictProcessing(
-        unique_fields,
+        unique_event_fields,
         settings.collect_unique_event_fields.output_path,
+        settings.write_options,
+    )
+
+    unique_process_fields = collectUniqueFields(
+        settings.collect_unique_process_fields.fields, filtered_log.process_list.process
+    )
+    outputDictProcessing(
+        unique_process_fields,
+        settings.collect_unique_process_fields.output_path,
         settings.write_options,
     )
 

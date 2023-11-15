@@ -28,6 +28,7 @@ class EventFilter:
 class ProcessFilter:
     def __init__(self, json: dict):
         self.enabled = json["enabled"]
+        self.with_modules = json["withModules"]
         self.command_line_filter = NodeSetting(json["commandLineFilter"])
         self.company_name_filter = NodeSetting(json["companyNameFilter"])
         self.is_virtualized_filter = NodeSetting(json["isVirtualizedFilter"])
@@ -63,6 +64,9 @@ class Settings:
         )
         self.collect_unique_event_fields = CollectUniaueEventFields(
             json["actions"]["collectUniqueEventFields"]
+        )
+        self.collect_unique_process_fields = CollectUniaueEventFields(
+            json["actions"]["collectUniqueProcessFields"]
         )
         self.write_options = WriteOptions(json["writeOptions"])
 

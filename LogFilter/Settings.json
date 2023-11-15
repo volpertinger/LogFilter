@@ -2,21 +2,26 @@
   "inputPath": "***",
   "actions": {
     "writeFilteredResult": {
-      "enabled": false,
+      "enabled": true,
       "outputPath": "***"
     },
     "collectUniqueEventFields": {
-      "enabled": false,
+      "enabled": true,
+      "fields": [],
+      "outputPath": "***"
+    },
+    "collectUniqueProcessFields": {
+      "enabled": true,
       "fields": [],
       "outputPath": "***"
     }
   },
   "writeOptions": {
     "console": false,
-    "file": false
+    "file": true
   },
   "eventFilter": {
-    "enabled": true,
+    "enabled": false,
     "operationFilter": {
       "enabled": false,
       "include": true,
@@ -50,6 +55,7 @@
   },
   "processFilter": {
     "enabled": false,
+    "withModules": false,
     "commandLineFilter": {
       "enabled": false,
       "include": true,
@@ -57,7 +63,7 @@
     },
     "companyNameFilter": {
       "enabled": false,
-      "include": true,
+      "include": false,
       "data": []
     },
     "isVirtualizedFilter": {
