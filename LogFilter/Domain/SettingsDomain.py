@@ -54,6 +54,12 @@ class WriteOptions:
         self.file = json["file"]
 
 
+class MalwareDetectionOptions:
+    def __init__(self, json: dict):
+        self.enabled = json["enabled"]
+        self.programm_path = json["programPath"]
+
+
 class Settings:
     def __init__(self, json: dict):
         self.event_filter = EventFilter(json["eventFilter"])
@@ -69,6 +75,9 @@ class Settings:
             json["actions"]["collectUniqueProcessFields"]
         )
         self.write_options = WriteOptions(json["writeOptions"])
+        self.malware_detection = MalwareDetectionOptions(
+            json["actions"]["malwareDetection"]
+        )
 
     @staticmethod
     def fromFile(path: str):

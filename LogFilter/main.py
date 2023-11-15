@@ -10,8 +10,8 @@ from FilterUtils import (
     outputDictProcessing,
 )
 from Domain.LogDomain import Log
+from MalwareDetectionIntegration import detectionProcessing
 
-# TODO: logs
 
 if __name__ == "__main__":
     settings = Settings.fromFile(os.path.join(os.getcwd(), "Settings.json"))
@@ -43,4 +43,8 @@ if __name__ == "__main__":
         settings.write_options,
     )
 
-    print("END")
+    detect_result = detectionProcessing(log.event_list.event, settings)
+    if detect_result is not None:
+        print(f"Detected nalware with PID {detect_result}")
+    else:
+        print("There is no malware in events")    
