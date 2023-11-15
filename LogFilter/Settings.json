@@ -1,19 +1,23 @@
 {
-  "inputPath": "***",
+  "inputPath": "Path\To\logfile.json",
   "actions": {
     "writeFilteredResult": {
       "enabled": true,
-      "outputPath": "***"
+      "outputPath": "Path\To\filtered_logs.json"
     },
     "collectUniqueEventFields": {
-      "enabled": true,
-      "fields": [],
-      "outputPath": "***"
+      "enabled": false,
+      "fields": [ "Process_Name", "PID" ],
+      "outputPath": "Path\To\unique_events_fields.json"
     },
     "collectUniqueProcessFields": {
+      "enabled": false,
+      "fields": [ "ProcessName", "Version" ],
+      "outputPath": "Path\To\unique_process_fields.json"
+    },
+    "malwareDetection": {
       "enabled": true,
-      "fields": [],
-      "outputPath": "***"
+      "programPath": "Path\To\compiled\DetectMalware"
     }
   },
   "writeOptions": {
@@ -59,11 +63,11 @@
     "commandLineFilter": {
       "enabled": false,
       "include": true,
-      "data": []
+      "data": [ "" ]
     },
     "companyNameFilter": {
       "enabled": false,
-      "include": false,
+      "include": true,
       "data": []
     },
     "isVirtualizedFilter": {
