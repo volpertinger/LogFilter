@@ -34,6 +34,7 @@ class ProcessFilter:
         self.is_virtualized_filter = NodeSetting(json["isVirtualizedFilter"])
         self.process_id_filter = NodeSetting(json["processIdFilter"])
         self.process_name_filter = NodeSetting(json["processNameFilter"])
+        self.parent_process_id_filter = NodeSetting(json["parentProcessIdFilter"])
 
 
 class ActionBaseSetting:

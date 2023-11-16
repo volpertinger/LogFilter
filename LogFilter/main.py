@@ -43,8 +43,8 @@ if __name__ == "__main__":
         settings.write_options,
     )
 
-    detect_result = detectionProcessing(log.event_list.event, settings)
+    detect_result = detectionProcessing(filtered_log.event_list.event, settings)
     if detect_result is not None:
         print(f"Detected nalware with PID {detect_result}")
     else:
-        print("There is no malware in events")    
+        print("There is no malware in events")

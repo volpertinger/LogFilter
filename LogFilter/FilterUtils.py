@@ -104,4 +104,5 @@ def isProcessInFilter(process: Process, filter: ProcessFilter):
         and isFieldInFilter(process.is_virtualized, filter.is_virtualized_filter)
         and isFieldInFilter(process.process_id, filter.process_id_filter)
         and isFieldInFilter(process.process_name, filter.process_name_filter)
+        and isFieldInFilter(process.parent_process_id, filter.parent_process_id_filter)
     )
